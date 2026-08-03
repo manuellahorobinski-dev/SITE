@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcolheMente - Saúde Emocional</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="accessibility-bar">
+        <button id="toggle-dark" title="Alternar Modo Escuro"><i class="fa-solid fa-moon"></i> Modo Escuro</button>
+        <button id="increase-font" title="Aumentar Fonte"><i class="fa-solid fa-font"></i> Aumentar Texto</button>
+        <button id="toggle-contrast" title="Alto Contraste"><i class="fa-solid fa-circle-half-stroke"></i> Alto Contraste</button>
+    </div>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <span>AcolheMente</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#escuta">Portal de Escuta</a></li>
+                <li><a href="#quiz">Quiz Interativo</a></li>
+                <li><a href="#referencias">Referências</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1>AcolheMente: Apoio à Saúde Emocional</h1>
+                <p class="welcome-msg">
+                    Bem-vindo ao Portal de Apoio ao Estudante. Aqui você encontrará informações, orientações e apoio sobre situações vivenciadas no ambiente escolar. Seu bem-estar é prioridade.
+                </p>
+                <a href="#escuta" class="btn-primary">Precisa conversar? Clique aqui</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Estudantes sorrindo juntos em apoio mútuo">
+            </div>
+        </section>
+
+        <section id="escuta" class="section">
+            <h2><i class="fa-solid fa-comments"></i> Portal de Escuta</h2>
+            <p>Este é um espaço seguro para você desabafar. As informações preenchidas **não são salvas nem registradas** em nenhum servidor.</p>
+            
+            <div class="escuta-container">
+                <form id="form-escuta">
+                    <label for="desabafo">Escreva como você está se sentindo hoje:</label>
+                    <textarea id="desabafo" rows="5" placeholder="Digite aqui o seu desabafo..." required></textarea>
+                    <button type="submit" class="btn-secondary">Enviar Desabafo</button>
+                </form>
+
+                <div id="mensagem-acolhimento" class="hidden"></div>
+            </div>
+
+            <div class="orientacoes-box">
+                <h3><i class="fa-solid fa-hand-holding-heart"></i> Precisa de ajuda real?</h3>
+                <p>Lembre-se: você não precisa passar por nada sozinho. Procure ajuda com alguém de sua confiança:</p>
+                <ul>
+                    <li><i class="fa-solid fa-chalkboard-user"></i> Professores ou Pedagogos da escola</li>
+                    <li><i class="fa-solid fa-user-tie"></i> Direção escolar</li>
+                    <li><i class="fa-solid fa-house-user"></i> Familiares e responsáveis</li>
+                    <li><i class="fa-solid fa-phone"></i> **CVV (Centro de Valorização da Vida):** Ligue **188** (gratuito e 24h)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="quiz" class="section">
+            <h2><i class="fa-solid fa-circle-question"></i> Quiz: Convivência e Saúde Emocional</h2>
+            <div id="quiz-container">
+                <div id="quiz-questions"></div>
+                <button id="btn-submit-quiz" class="btn-primary">Verificar Resultado</button>
+                <div id="quiz-result" class="hidden"></div>
+            </div>
+        </section>
+
+        <section id="referencias" class="section">
+            <h2><i class="fa-solid fa-book-bookmark"></i> Referências e Fontes Confiáveis</h2>
+            <p>O conteúdo deste portal é baseado em diretrizes de instituições de referência:</p>
+            <ul class="ref-list">
+                <li><a href="https://www.gov.br/saude/pt-br" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ministério da Saúde - Portal Oficial</a></li>
+                <li><a href="https://www.unicef.org/brazil/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> UNICEF Brasil - Saúde Mental e Adolescência</a></li>
+                <li><a href="https://www.cvv.org.br/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> CVV - Centro de Valorização da Vida</a></li>
+                <li><a href="https://www.fiocruz.br/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Fundação Oswaldo Cruz (Fiocruz)</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <button id="btn-back-to-top" title="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <footer>
+        <p>&copy; 2026 Portal AcolheMente - Desenvolvido para fins educacionais.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
