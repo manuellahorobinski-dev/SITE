@@ -1,54 +1,594 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcolheMente | Portal de Apoio e Saúde Emocional</title>
+
+    <title>Portal de Saúde Emocional</title>
+
+    <!-- CSS EXTERNO -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- ÍCONES -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 <body>
 
-    <aside class="accessibility-bar" aria-label="Ferramentas de Acessibilidade">
-        <div class="accessibility-container">
-            <span><i class="fa-solid fa-universal-access"></i> Acessibilidade:</span>
-            <button id="toggle-dark" title="Alternar Modo Escuro" aria-label="Alternar Modo Escuro">
-                <i class="fa-solid fa-moon"></i> Modo Escuro
-            </button>
-            <button id="increase-font" title="Aumentar Fonte" aria-label="Aumentar Fonte">
-                <i class="fa-solid fa-font"></i> A+ Texto
-            </button>
-            <button id="toggle-contrast" title="Alto Contraste" aria-label="Alto Contraste">
-                <i class="fa-solid fa-circle-half-stroke"></i> Alto Contraste
-            </button>
-        </div>
-    </aside>
+    <!-- ================= CABEÇALHO ================= -->
 
-    <header class="main-header">
-        <div class="header-container">
-            <a href="#home" class="logo">
-                <i class="fa-solid fa-heart-pulse logo-icon"></i>
-                <div class="logo-text">
-                    <span class="brand-name">AcolheMente</span>
-                    <span class="brand-sub">Saúde Emocional Escolar</span>
-                </div>
-            </a>
+    <header>
+        <nav class="navbar">
 
-            <nav class="navbar" aria-label="Navegação Principal">
-                <ul>
-                    <li><a href="#home" class="active"><i class="fa-solid fa-house"></i> Início</a></li>
-                    <li><a href="#pilares"><i class="fa-solid fa-seedling"></i> Dicas</a></li>
-                    <li><a href="#escuta"><i class="fa-solid fa-comments"></i> Escuta</a></li>
-                    <li><a href="#quiz"><i class="fa-solid fa-gamepad"></i> Quiz</a></li>
-                    <li><a href="#referencias"><i class="fa-solid fa-book"></i> Fontes</a></li>
-                </ul>
-            </nav>
-        </div>
+            <div class="logo">
+                <i class="fa-solid fa-heart"></i>
+                Saúde Emocional
+            </div>
+
+            <button class="menu-mobile" id="menuMobile">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="menu" id="menu">
+
+                <li>
+                    <a href="index.html">
+                        <i class="fa-solid fa-house"></i>
+                        Início
+                    </a>
+                </li>
+
+                <li>
+                    <a href="escuta.html">
+                        <i class="fa-solid fa-comments"></i>
+                        Portal de Escuta
+                    </a>
+                </li>
+
+                <li>
+                    <a href="quiz.html">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Quiz
+                    </a>
+                </li>
+
+                <li>
+                    <a href="referencias.html">
+                        <i class="fa-solid fa-book"></i>
+                        Referências
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- ACESSIBILIDADE -->
+
+            <div class="acessibilidade">
+
+                <button id="modoEscuro" title="Ativar modo escuro">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button id="aumentarFonte" title="Aumentar fonte">
+                    <i class="fa-solid fa-font"></i>
+                    +
+                </button>
+
+                <button id="altoContraste" title="Ativar alto contraste">
+                    <i class="fa-solid fa-circle-half-stroke"></i>
+                </button>
+
+            </div>
+
+        </nav>
     </header>
 
-    <main id="main-content">
-        
-        <section
+
+    <!-- ================= CONTEÚDO PRINCIPAL ================= -->
+
+    <main>
+
+        <!-- ================= PÁGINA INICIAL ================= -->
+
+        <section class="inicio" id="inicio">
+
+            <div class="inicio-texto">
+
+                <span class="etiqueta">
+                    <i class="fa-solid fa-heart"></i>
+                    Você não está sozinho
+                </span>
+
+                <h1>
+                    Portal de Saúde
+                    <span>Emocional</span>
+                    do Estudante
+                </h1>
+
+                <p>
+                    Um espaço criado para informar, acolher e orientar
+                    estudantes sobre saúde emocional, sentimentos,
+                    convivência e a importância de pedir ajuda.
+                </p>
+
+                <div class="botoes">
+
+                    <a href="escuta.html" class="botao">
+                        <i class="fa-solid fa-comments"></i>
+                        Portal de Escuta
+                    </a>
+
+                    <a href="quiz.html" class="botao secundario">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Fazer o Quiz
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="inicio-imagem">
+
+                <img src="imagens/saude-emocional.jpg"
+                    alt="Estudantes conversando e apoiando uns aos outros">
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SOBRE SAÚDE EMOCIONAL ================= -->
+
+        <section class="sobre" id="sobre">
+
+            <div class="titulo">
+
+                <span>Sobre o tema</span>
+
+                <h2>
+                    O que é saúde emocional?
+                </h2>
+
+            </div>
+
+            <div class="sobre-conteudo">
+
+                <div class="sobre-texto">
+
+                    <p>
+                        Saúde emocional está relacionada à maneira como
+                        lidamos com nossos sentimentos, pensamentos e
+                        situações do dia a dia.
+                    </p>
+
+                    <p>
+                        Na adolescência, podem surgir diferentes desafios,
+                        como pressão escolar, mudanças, conflitos,
+                        preocupações, inseguranças e dificuldades nas
+                        relações com outras pessoas.
+                    </p>
+
+                    <p>
+                        Cuidar da saúde emocional significa reconhecer
+                        nossos sentimentos, conversar sobre o que estamos
+                        vivendo e procurar ajuda quando necessário.
+                    </p>
+
+                </div>
+
+                <div class="sobre-card">
+
+                    <i class="fa-solid fa-brain"></i>
+
+                    <h3>
+                        Cuidar da mente também é importante.
+                    </h3>
+
+                    <p>
+                        Não existe problema em pedir ajuda.
+                        Conversar com alguém de confiança pode ser
+                        um primeiro passo.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TEMAS ================= -->
+
+        <section class="temas">
+
+            <div class="titulo">
+
+                <span>Conheça</span>
+
+                <h2>
+                    Temas importantes para sua saúde emocional
+                </h2>
+
+            </div>
+
+
+            <div class="cards">
+
+                <!-- CARD 1 -->
+
+                <article class="card">
+
+                    <div class="icone">
+                        <i class="fa-solid fa-face-smile"></i>
+                    </div>
+
+                    <h3>
+                        Emoções
+                    </h3>
+
+                    <p>
+                        Aprender a reconhecer e compreender aquilo
+                        que estamos sentindo.
+                    </p>
+
+                </article>
+
+
+                <!-- CARD 2 -->
+
+                <article class="card">
+
+                    <div class="icone">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+
+                    <h3>
+                        Amizades
+                    </h3>
+
+                    <p>
+                        Construir relações baseadas em respeito,
+                        confiança e empatia.
+                    </p>
+
+                </article>
+
+
+                <!-- CARD 3 -->
+
+                <article class="card">
+
+                    <div class="icone">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+
+                    <h3>
+                        Vida escolar
+                    </h3>
+
+                    <p>
+                        Lidar com provas, trabalhos, expectativas
+                        e desafios do ambiente escolar.
+                    </p>
+
+                </article>
+
+
+                <!-- CARD 4 -->
+
+                <article class="card">
+
+                    <div class="icone">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+
+                    <h3>
+                        Apoio
+                    </h3>
+
+                    <p>
+                        Saber quando procurar um professor, familiar
+                        ou outro adulto de confiança.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MENSAGEM DE ACOLHIMENTO ================= -->
+
+        <section class="acolhimento">
+
+            <div class="acolhimento-conteudo">
+
+                <i class="fa-solid fa-heart"></i>
+
+                <h2>
+                    Seus sentimentos importam.
+                </h2>
+
+                <p>
+                    Nem sempre precisamos encontrar todas as respostas
+                    sozinhos. Conversar com alguém de confiança pode
+                    ajudar a tornar um momento difícil mais leve.
+                </p>
+
+                <a href="escuta.html" class="botao branco">
+                    Quero conversar
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= QUANDO PROCURAR AJUDA ================= -->
+
+        <section class="ajuda">
+
+            <div class="titulo">
+
+                <span>Quando precisar</span>
+
+                <h2>
+                    Procure ajuda de alguém de confiança
+                </h2>
+
+            </div>
+
+
+            <div class="ajuda-lista">
+
+                <div class="ajuda-item">
+
+                    <i class="fa-solid fa-chalkboard-user"></i>
+
+                    <div>
+
+                        <h3>
+                            Professor
+                        </h3>
+
+                        <p>
+                            Converse com um professor em quem você confia
+                            quando estiver enfrentando alguma dificuldade.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ajuda-item">
+
+                    <i class="fa-solid fa-school"></i>
+
+                    <div>
+
+                        <h3>
+                            Pedagogo ou direção
+                        </h3>
+
+                        <p>
+                            A equipe da escola pode orientar e ajudar
+                            diante de situações difíceis.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ajuda-item">
+
+                    <i class="fa-solid fa-house-user"></i>
+
+                    <div>
+
+                        <h3>
+                            Família
+                        </h3>
+
+                        <p>
+                            Compartilhe seus sentimentos com um familiar
+                            ou responsável de confiança.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="ajuda-item">
+
+                    <i class="fa-solid fa-user-group"></i>
+
+                    <div>
+
+                        <h3>
+                            Adulto de confiança
+                        </h3>
+
+                        <p>
+                            Pode ser outro adulto que faça parte da sua
+                            rede de apoio e que possa ajudar.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FRASE MOTIVACIONAL ================= -->
+
+        <section class="frase">
+
+            <i class="fa-solid fa-quote-left"></i>
+
+            <h2>
+                "Você não precisa resolver tudo hoje."
+            </h2>
+
+            <p>
+                Um passo de cada vez também é progresso.
+            </p>
+
+        </section>
+
+
+        <!-- ================= CARROSSEL ================= -->
+
+        <section class="carrossel">
+
+            <div class="titulo">
+
+                <span>Galeria</span>
+
+                <h2>
+                    Momentos de apoio e convivência
+                </h2>
+
+            </div>
+
+            <div class="slider">
+
+                <button class="seta anterior" id="anterior">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <div class="slides">
+
+                    <img src="imagens/estudantes.jpg"
+                        alt="Estudantes juntos"
+                        class="slide ativo">
+
+                    <img src="imagens/apoio.jpg"
+                        alt="Pessoas oferecendo apoio"
+                        class="slide">
+
+                    <img src="imagens/saude-emocional.jpg"
+                        alt="Representação de saúde emocional"
+                        class="slide">
+
+                </div>
+
+                <button class="seta proximo" id="proximo">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= BOTÃO VOLTAR AO TOPO ================= -->
+
+    <button id="voltarTopo" title="Voltar ao topo">
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+    </button>
+
+
+    <!-- ================= RODAPÉ ================= -->
+
+    <footer>
+
+        <div class="footer-conteudo">
+
+            <div class="footer-logo">
+
+                <h3>
+                    <i class="fa-solid fa-heart"></i>
+                    Portal de Saúde Emocional
+                </h3>
+
+                <p>
+                    Informação, acolhimento e orientação
+                    para estudantes.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>
+                    Navegação
+                </h4>
+
+                <a href="index.html">
+                    Início
+                </a>
+
+                <a href="escuta.html">
+                    Portal de Escuta
+                </a>
+
+                <a href="quiz.html">
+                    Quiz
+                </a>
+
+                <a href="referencias.html">
+                    Referências
+                </a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h4>
+                    Ajuda
+                </h4>
+
+                <a href="#sobre">
+                    Saúde emocional
+                </a>
+
+                <a href="#inicio">
+                    Início
+                </a>
+
+                <a href="escuta.html">
+                    Preciso conversar
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <p>
+                &copy; 2026 Portal de Saúde Emocional do Estudante.
+            </p>
+
+            <p>
+                Projeto educativo escolar.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT EXTERNO -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
