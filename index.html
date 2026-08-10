@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -5,26 +6,1247 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portal de Saúde Emocional</title>
-
-    <!-- CSS EXTERNO -->
-    <link rel="stylesheet" href="style.css">
+    <title>Batman | Portal de Saúde Emocional</title>
 
     <!-- ÍCONES -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =====================================================
+           CONFIGURAÇÕES GERAIS
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #eeeeee;
+            line-height: 1.6;
+            transition: 0.4s;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           CABEÇALHO
+        ===================================================== */
+
+        header {
+            width: 100%;
+            background: #050505;
+            border-bottom: 2px solid #f5c400;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.7);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+
+            padding: 16px 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .logo {
+            color: #f5c400;
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 2px;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 27px;
+        }
+
+        .menu {
+            list-style: none;
+
+            display: flex;
+            gap: 22px;
+        }
+
+        .menu a {
+            color: #dddddd;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #f5c400;
+        }
+
+        .menu a i {
+            margin-right: 5px;
+        }
+
+
+        /* =====================================================
+           ACESSIBILIDADE
+        ===================================================== */
+
+        .acessibilidade {
+            display: flex;
+            gap: 7px;
+        }
+
+        .acessibilidade button {
+            width: 38px;
+            height: 38px;
+
+            border-radius: 50%;
+
+            border: 1px solid #444;
+
+            background: #151515;
+            color: #f5c400;
+
+            transition: 0.3s;
+        }
+
+        .acessibilidade button:hover {
+            background: #f5c400;
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+
+        /* =====================================================
+           MENU MOBILE
+        ===================================================== */
+
+        .menu-mobile {
+            display: none;
+
+            background: transparent;
+            border: none;
+
+            color: #f5c400;
+            font-size: 25px;
+        }
+
+
+        /* =====================================================
+           INÍCIO
+        ===================================================== */
+
+        .inicio {
+            max-width: 1200px;
+            min-height: 700px;
+
+            margin: auto;
+            padding: 90px 25px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            gap: 60px;
+
+            position: relative;
+        }
+
+        .inicio::before {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            background: #f5c400;
+
+            filter: blur(180px);
+
+            opacity: 0.08;
+
+            z-index: -1;
+        }
+
+        .etiqueta {
+            display: inline-block;
+
+            color: #f5c400;
+
+            border: 1px solid #f5c400;
+
+            padding: 7px 15px;
+
+            border-radius: 4px;
+
+            font-size: 12px;
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 20px;
+        }
+
+        .inicio h1 {
+            font-size: clamp(40px, 5vw, 65px);
+
+            line-height: 1.05;
+
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+        }
+
+        .inicio h1 span {
+            color: #f5c400;
+
+            text-shadow:
+                0 0 10px rgba(245, 196, 0, 0.25);
+        }
+
+        .inicio-texto > p {
+            max-width: 580px;
+
+            color: #bdbdbd;
+
+            font-size: 17px;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =====================================================
+           BOTÕES
+        ===================================================== */
+
+        .botoes {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .botao {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            padding: 14px 24px;
+
+            background: #f5c400;
+            color: #000;
+
+            border-radius: 4px;
+
+            font-weight: 900;
+
+            text-transform: uppercase;
+
+            transition: 0.3s;
+        }
+
+        .botao:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 0 25px rgba(245, 196, 0, 0.35);
+        }
+
+        .botao.secundario {
+            background: transparent;
+
+            border: 2px solid #f5c400;
+
+            color: #f5c400;
+        }
+
+
+        /* =====================================================
+           IMAGEM
+        ===================================================== */
+
+        .inicio-imagem {
+            position: relative;
+        }
+
+        .inicio-imagem::before {
+            content: "🦇";
+
+            position: absolute;
+
+            top: -25px;
+            right: -20px;
+
+            font-size: 70px;
+
+            z-index: 2;
+
+            filter: drop-shadow(
+                0 0 15px rgba(245,196,0,0.4)
+            );
+        }
+
+        .inicio-imagem img {
+            width: 100%;
+            height: 450px;
+
+            object-fit: cover;
+
+            border: 3px solid #f5c400;
+
+            border-radius: 5px;
+
+            filter: grayscale(30%) contrast(110%);
+
+            box-shadow:
+                0 0 30px rgba(245, 196, 0, 0.12);
+
+            animation: aparecer 1s ease;
+        }
+
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =====================================================
+           TÍTULOS
+        ===================================================== */
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .titulo span {
+            color: #f5c400;
+
+            text-transform: uppercase;
+
+            letter-spacing: 3px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+        .titulo h2 {
+            margin-top: 10px;
+
+            font-size: 36px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           SOBRE SAÚDE EMOCIONAL
+        ===================================================== */
+
+        .sobre {
+            background: #101010;
+
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+
+            padding: 90px 25px;
+        }
+
+        .sobre-conteudo {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 350px;
+
+            gap: 60px;
+
+            align-items: center;
+        }
+
+        .sobre-texto p {
+            color: #bdbdbd;
+
+            font-size: 17px;
+
+            margin-bottom: 18px;
+        }
+
+        .sobre-card {
+            background: #050505;
+
+            border: 1px solid #f5c400;
+
+            padding: 35px;
+
+            text-align: center;
+
+            border-radius: 5px;
+
+            box-shadow:
+                0 0 25px rgba(245,196,0,0.08);
+        }
+
+        .sobre-card i {
+            color: #f5c400;
+
+            font-size: 45px;
+
+            margin-bottom: 20px;
+        }
+
+        .sobre-card h3 {
+            margin-bottom: 12px;
+        }
+
+
+        /* =====================================================
+           TEMAS
+        ===================================================== */
+
+        .temas {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 90px 25px;
+        }
+
+        .cards {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .card {
+            background: #111111;
+
+            border: 1px solid #292929;
+
+            padding: 30px;
+
+            border-radius: 5px;
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: #f5c400;
+
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .icone {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: #f5c400;
+
+            color: #000;
+
+            border-radius: 5px;
+
+            font-size: 24px;
+
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            color: #ffffff;
+
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #999999;
+        }
+
+
+        /* =====================================================
+           PORTAL DE ESCUTA
+        ===================================================== */
+
+        .escuta {
+            background: #0d0d0d;
+
+            padding: 90px 25px;
+
+            border-top: 2px solid #f5c400;
+            border-bottom: 2px solid #f5c400;
+        }
+
+        .escuta-container {
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+        .escuta-box {
+            background: #151515;
+
+            border: 1px solid #333;
+
+            border-radius: 8px;
+
+            padding: 40px;
+
+            box-shadow:
+                0 10px 35px rgba(0,0,0,0.5);
+        }
+
+        .escuta-box label {
+            display: block;
+
+            color: #f5c400;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+        .escuta-box textarea {
+            width: 100%;
+
+            min-height: 180px;
+
+            resize: vertical;
+
+            background: #080808;
+
+            color: white;
+
+            border: 1px solid #444;
+
+            border-radius: 5px;
+
+            padding: 15px;
+
+            font-size: 16px;
+
+            outline: none;
+        }
+
+        .escuta-box textarea:focus {
+            border-color: #f5c400;
+
+            box-shadow:
+                0 0 10px rgba(245,196,0,0.15);
+        }
+
+        .escuta-box button {
+            margin-top: 15px;
+
+            padding: 13px 22px;
+
+            background: #f5c400;
+
+            color: #000;
+
+            border: none;
+
+            border-radius: 4px;
+
+            font-weight: bold;
+        }
+
+        #mensagemAcolhimento {
+            margin-top: 20px;
+
+            padding: 20px;
+
+            display: none;
+
+            background: #211f16;
+
+            border-left: 4px solid #f5c400;
+
+            color: #fff;
+        }
+
+        .frases {
+            margin-top: 35px;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 15px;
+        }
+
+        .frase-card {
+            background: #111;
+
+            border: 1px solid #292929;
+
+            padding: 20px;
+
+            text-align: center;
+
+            border-radius: 5px;
+        }
+
+        .frase-card i {
+            color: #f5c400;
+
+            font-size: 25px;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =====================================================
+           AJUDA
+        ===================================================== */
+
+        .ajuda {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 90px 25px;
+        }
+
+        .ajuda-lista {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .ajuda-item {
+            background: #111;
+
+            border-left: 4px solid #f5c400;
+
+            padding: 25px;
+
+            display: flex;
+
+            gap: 20px;
+
+            transition: 0.3s;
+        }
+
+        .ajuda-item:hover {
+            transform: translateX(6px);
+
+            background: #171717;
+        }
+
+        .ajuda-item > i {
+            color: #f5c400;
+
+            font-size: 28px;
+        }
+
+        .ajuda-item p {
+            color: #999;
+        }
+
+
+        /* =====================================================
+           ACOLHIMENTO
+        ===================================================== */
+
+        .acolhimento {
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.85),
+                    rgba(0,0,0,0.95)
+                );
+
+            border-top: 2px solid #f5c400;
+            border-bottom: 2px solid #f5c400;
+
+            text-align: center;
+
+            padding: 90px 25px;
+        }
+
+        .acolhimento-conteudo {
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+        .acolhimento i {
+            color: #f5c400;
+
+            font-size: 50px;
+
+            margin-bottom: 20px;
+        }
+
+        .acolhimento h2 {
+            font-size: 38px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .acolhimento p {
+            color: #aaa;
+
+            font-size: 17px;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =====================================================
+           FRASE
+        ===================================================== */
+
+        .frase {
+            background: #f5c400;
+
+            color: #000;
+
+            text-align: center;
+
+            padding: 80px 25px;
+        }
+
+        .frase i {
+            font-size: 35px;
+
+            margin-bottom: 20px;
+        }
+
+        .frase h2 {
+            font-size: 32px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =====================================================
+           QUIZ
+        ===================================================== */
+
+        .quiz {
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 90px 25px;
+        }
+
+        .pergunta {
+            background: #111;
+
+            border: 1px solid #292929;
+
+            border-left: 4px solid #f5c400;
+
+            padding: 25px;
+
+            margin-bottom: 20px;
+
+            border-radius: 5px;
+        }
+
+        .pergunta h3 {
+            margin-bottom: 15px;
+
+            color: #fff;
+        }
+
+        .alternativa {
+            display: block;
+
+            padding: 10px;
+
+            margin: 7px 0;
+
+            border-radius: 4px;
+
+            color: #bbb;
+
+            transition: 0.3s;
+        }
+
+        .alternativa:hover {
+            background: #1d1d1d;
+
+            color: #f5c400;
+        }
+
+        .quiz button {
+            background: #f5c400;
+
+            color: #000;
+
+            border: none;
+
+            padding: 15px 25px;
+
+            border-radius: 4px;
+
+            font-weight: bold;
+
+            font-size: 16px;
+        }
+
+        #resultado {
+            margin-top: 25px;
+
+            padding: 25px;
+
+            display: none;
+
+            background: #211f16;
+
+            border: 1px solid #f5c400;
+
+            text-align: center;
+
+            font-size: 20px;
+
+            font-weight: bold;
+        }
+
+
+        /* =====================================================
+           CARROSSEL
+        ===================================================== */
+
+        .carrossel {
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding: 90px 25px;
+        }
+
+        .slider {
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+        }
+
+        .slides {
+            width: 100%;
+            height: 430px;
+
+            overflow: hidden;
+
+            border: 2px solid #f5c400;
+        }
+
+        .slide {
+            display: none;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .slide.ativo {
+            display: block;
+
+            animation: aparecer 0.5s ease;
+        }
+
+        .seta {
+            position: absolute;
+
+            z-index: 5;
+
+            width: 45px;
+            height: 45px;
+
+            border: 2px solid #f5c400;
+
+            background: #000;
+
+            color: #f5c400;
+
+            border-radius: 50%;
+        }
+
+        .seta:hover {
+            background: #f5c400;
+
+            color: #000;
+        }
+
+        .anterior {
+            left: 20px;
+        }
+
+        .proximo {
+            right: 20px;
+        }
+
+
+        /* =====================================================
+           REFERÊNCIAS
+        ===================================================== */
+
+        .referencias {
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 90px 25px;
+        }
+
+        .referencias-lista {
+            display: grid;
+
+            gap: 15px;
+        }
+
+        .referencias-lista a {
+            display: block;
+
+            background: #111;
+
+            border: 1px solid #292929;
+
+            padding: 20px;
+
+            color: #f5c400;
+
+            border-radius: 5px;
+
+            transition: 0.3s;
+        }
+
+        .referencias-lista a:hover {
+            border-color: #f5c400;
+
+            transform: translateX(5px);
+        }
+
+
+        /* =====================================================
+           VOLTAR AO TOPO
+        ===================================================== */
+
+        #voltarTopo {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            width: 50px;
+            height: 50px;
+
+            border: 2px solid #f5c400;
+
+            border-radius: 50%;
+
+            background: #050505;
+
+            color: #f5c400;
+
+            display: none;
+
+            z-index: 999;
+
+            transition: 0.3s;
+        }
+
+        #voltarTopo:hover {
+            background: #f5c400;
+
+            color: #000;
+
+            transform: translateY(-5px);
+        }
+
+
+        /* =====================================================
+           RODAPÉ
+        ===================================================== */
+
+        footer {
+            background: #030303;
+
+            border-top: 2px solid #f5c400;
+
+            color: white;
+
+            padding: 60px 25px 20px;
+        }
+
+        .footer-conteudo {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 2fr 1fr 1fr;
+
+            gap: 50px;
+        }
+
+        .footer-logo h3 {
+            color: #f5c400;
+
+            text-transform: uppercase;
+        }
+
+        .footer-logo p {
+            color: #777;
+        }
+
+        .footer-links {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+        .footer-links h4 {
+            color: #f5c400;
+        }
+
+        .footer-links a {
+            color: #777;
+
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #f5c400;
+        }
+
+        .copyright {
+            max-width: 1100px;
+
+            margin: 40px auto 0;
+
+            padding-top: 20px;
+
+            border-top: 1px solid #222;
+
+            text-align: center;
+
+            color: #666;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           ALTO CONTRASTE
+        ===================================================== */
+
+        body.alto-contraste {
+            background: #000;
+
+            color: #fff;
+        }
+
+        body.alto-contraste * {
+            border-color: #ffff00 !important;
+        }
+
+        body.alto-contraste a,
+        body.alto-contraste i,
+        body.alto-contraste .logo {
+            color: #ffff00 !important;
+        }
+
+
+        /* =====================================================
+           FONTE GRANDE
+        ===================================================== */
+
+        body.fonte-grande {
+            font-size: 20px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVIDADE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .inicio {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+            .inicio-texto > p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .botoes {
+                justify-content: center;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 800px) {
+
+            .menu-mobile {
+                display: block;
+            }
+
+            .menu {
+                display: none;
+
+                width: 100%;
+
+                flex-direction: column;
+
+                padding: 20px 0;
+            }
+
+            .menu.aberto {
+                display: flex;
+            }
+
+            .acessibilidade {
+                margin-left: auto;
+            }
+
+            .sobre-conteudo {
+                grid-template-columns: 1fr;
+            }
+
+            .ajuda-lista {
+                grid-template-columns: 1fr;
+            }
+
+            .frases {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-conteudo {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .inicio h1 {
+                font-size: 40px;
+            }
+
+            .inicio-imagem img {
+                height: 300px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .titulo h2 {
+                font-size: 28px;
+            }
+
+            .acolhimento h2 {
+                font-size: 30px;
+            }
+
+            .slides {
+                height: 280px;
+            }
+
+            .botoes {
+                flex-direction: column;
+            }
+
+            .botao {
+                width: 100%;
+            }
+
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-    <!-- ================= CABEÇALHO ================= -->
+    <!-- =====================================================
+         CABEÇALHO
+    ===================================================== -->
 
     <header>
+
         <nav class="navbar">
 
             <div class="logo">
-                <i class="fa-solid fa-heart"></i>
-                Saúde Emocional
+                🦇 BATMAN
             </div>
 
             <button class="menu-mobile" id="menuMobile">
@@ -34,28 +1256,28 @@
             <ul class="menu" id="menu">
 
                 <li>
-                    <a href="index.html">
+                    <a href="#inicio">
                         <i class="fa-solid fa-house"></i>
                         Início
                     </a>
                 </li>
 
                 <li>
-                    <a href="escuta.html">
+                    <a href="#escuta">
                         <i class="fa-solid fa-comments"></i>
                         Portal de Escuta
                     </a>
                 </li>
 
                 <li>
-                    <a href="quiz.html">
+                    <a href="#quiz">
                         <i class="fa-solid fa-circle-question"></i>
                         Quiz
                     </a>
                 </li>
 
                 <li>
-                    <a href="referencias.html">
+                    <a href="#referencias">
                         <i class="fa-solid fa-book"></i>
                         Referências
                     </a>
@@ -63,64 +1285,76 @@
 
             </ul>
 
-            <!-- ACESSIBILIDADE -->
 
             <div class="acessibilidade">
 
-                <button id="modoEscuro" title="Ativar modo escuro">
+                <button id="modoEscuro" title="Modo escuro">
                     <i class="fa-solid fa-moon"></i>
                 </button>
 
                 <button id="aumentarFonte" title="Aumentar fonte">
-                    <i class="fa-solid fa-font"></i>
-                    +
+                    <i class="fa-solid fa-font"></i>+
                 </button>
 
-                <button id="altoContraste" title="Ativar alto contraste">
+                <button id="altoContraste" title="Alto contraste">
                     <i class="fa-solid fa-circle-half-stroke"></i>
                 </button>
 
             </div>
 
         </nav>
+
     </header>
 
 
-    <!-- ================= CONTEÚDO PRINCIPAL ================= -->
-
     <main>
 
-        <!-- ================= PÁGINA INICIAL ================= -->
+
+        <!-- =====================================================
+             INÍCIO
+        ===================================================== -->
 
         <section class="inicio" id="inicio">
 
             <div class="inicio-texto">
 
                 <span class="etiqueta">
-                    <i class="fa-solid fa-heart"></i>
-                    Você não está sozinho
+                    🦇 GOTHAM CITY
                 </span>
 
                 <h1>
+
                     Portal de Saúde
-                    <span>Emocional</span>
+
+                    <span>
+                        Emocional
+                    </span>
+
                     do Estudante
+
                 </h1>
 
                 <p>
-                    Um espaço criado para informar, acolher e orientar
-                    estudantes sobre saúde emocional, sentimentos,
-                    convivência e a importância de pedir ajuda.
+
+                    Assim como Gotham precisa de alguém para
+                    protegê-la, nós também precisamos cuidar da
+                    nossa mente.
+
+                    Este portal foi criado para informar,
+                    acolher e orientar estudantes sobre saúde
+                    emocional.
+
                 </p>
+
 
                 <div class="botoes">
 
-                    <a href="escuta.html" class="botao">
+                    <a href="#escuta" class="botao">
                         <i class="fa-solid fa-comments"></i>
                         Portal de Escuta
                     </a>
 
-                    <a href="quiz.html" class="botao secundario">
+                    <a href="#quiz" class="botao secundario">
                         <i class="fa-solid fa-circle-question"></i>
                         Fazer o Quiz
                     </a>
@@ -129,23 +1363,29 @@
 
             </div>
 
+
             <div class="inicio-imagem">
 
-                <img src="imagens/saude-emocional.jpg"
-                    alt="Estudantes conversando e apoiando uns aos outros">
+                <img
+                    src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=80"
+                    alt="Cidade durante a noite representando Gotham">
 
             </div>
 
         </section>
 
 
-        <!-- ================= SOBRE SAÚDE EMOCIONAL ================= -->
+        <!-- =====================================================
+             SOBRE
+        ===================================================== -->
 
         <section class="sobre" id="sobre">
 
             <div class="titulo">
 
-                <span>Sobre o tema</span>
+                <span>
+                    🦇 BAT-SINAL
+                </span>
 
                 <h2>
                     O que é saúde emocional?
@@ -153,30 +1393,39 @@
 
             </div>
 
+
             <div class="sobre-conteudo">
 
                 <div class="sobre-texto">
 
                     <p>
-                        Saúde emocional está relacionada à maneira como
-                        lidamos com nossos sentimentos, pensamentos e
-                        situações do dia a dia.
+
+                        Saúde emocional está relacionada à maneira
+                        como lidamos com nossos sentimentos,
+                        pensamentos e situações do dia a dia.
+
                     </p>
 
                     <p>
-                        Na adolescência, podem surgir diferentes desafios,
-                        como pressão escolar, mudanças, conflitos,
-                        preocupações, inseguranças e dificuldades nas
-                        relações com outras pessoas.
+
+                        Na adolescência, podem surgir desafios
+                        como pressão escolar, mudanças,
+                        conflitos, preocupações, inseguranças
+                        e dificuldades nas relações.
+
                     </p>
 
                     <p>
-                        Cuidar da saúde emocional significa reconhecer
-                        nossos sentimentos, conversar sobre o que estamos
-                        vivendo e procurar ajuda quando necessário.
+
+                        Cuidar da saúde emocional significa
+                        reconhecer nossos sentimentos, conversar
+                        sobre o que estamos vivendo e procurar
+                        ajuda quando necessário.
+
                     </p>
 
                 </div>
+
 
                 <div class="sobre-card">
 
@@ -187,9 +1436,11 @@
                     </h3>
 
                     <p>
+
                         Não existe problema em pedir ajuda.
-                        Conversar com alguém de confiança pode ser
-                        um primeiro passo.
+                        Conversar com alguém de confiança pode
+                        ser um primeiro passo.
+
                     </p>
 
                 </div>
@@ -199,16 +1450,20 @@
         </section>
 
 
-        <!-- ================= TEMAS ================= -->
+        <!-- =====================================================
+             TEMAS
+        ===================================================== -->
 
         <section class="temas">
 
             <div class="titulo">
 
-                <span>Conheça</span>
+                <span>
+                    DOSSIÊ DE GOTHAM
+                </span>
 
                 <h2>
-                    Temas importantes para sua saúde emocional
+                    Temas importantes
                 </h2>
 
             </div>
@@ -216,7 +1471,6 @@
 
             <div class="cards">
 
-                <!-- CARD 1 -->
 
                 <article class="card">
 
@@ -229,14 +1483,12 @@
                     </h3>
 
                     <p>
-                        Aprender a reconhecer e compreender aquilo
-                        que estamos sentindo.
+                        Aprender a reconhecer e compreender
+                        aquilo que estamos sentindo.
                     </p>
 
                 </article>
 
-
-                <!-- CARD 2 -->
 
                 <article class="card">
 
@@ -256,8 +1508,6 @@
                 </article>
 
 
-                <!-- CARD 3 -->
-
                 <article class="card">
 
                     <div class="icone">
@@ -276,8 +1526,6 @@
                 </article>
 
 
-                <!-- CARD 4 -->
-
                 <article class="card">
 
                     <div class="icone">
@@ -289,8 +1537,8 @@
                     </h3>
 
                     <p>
-                        Saber quando procurar um professor, familiar
-                        ou outro adulto de confiança.
+                        Saber quando procurar um professor,
+                        familiar ou outro adulto de confiança.
                     </p>
 
                 </article>
@@ -300,49 +1548,127 @@
         </section>
 
 
-        <!-- ================= MENSAGEM DE ACOLHIMENTO ================= -->
+        <!-- =====================================================
+             PORTAL DE ESCUTA
+        ===================================================== -->
 
-        <section class="acolhimento">
+        <section class="escuta" id="escuta">
 
-            <div class="acolhimento-conteudo">
+            <div class="escuta-container">
 
-                <i class="fa-solid fa-heart"></i>
+                <div class="titulo">
 
-                <h2>
-                    Seus sentimentos importam.
-                </h2>
+                    <span>
+                        🦇 BAT-SINAL ATIVADO
+                    </span>
 
-                <p>
-                    Nem sempre precisamos encontrar todas as respostas
-                    sozinhos. Conversar com alguém de confiança pode
-                    ajudar a tornar um momento difícil mais leve.
-                </p>
+                    <h2>
+                        Portal de Escuta
+                    </h2>
 
-                <a href="escuta.html" class="botao branco">
-                    Quero conversar
-                </a>
+                    <p>
+                        Um espaço para colocar seus sentimentos
+                        em palavras.
+                    </p>
+
+                </div>
+
+
+                <div class="escuta-box">
+
+                    <label for="desabafo">
+
+                        <i class="fa-solid fa-pen"></i>
+
+                        Como você está se sentindo?
+
+                    </label>
+
+
+                    <textarea
+                        id="desabafo"
+                        placeholder="Escreva aqui o que você gostaria de desabafar..."></textarea>
+
+
+                    <button id="enviarDesabafo">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                        Enviar desabafo
+
+                    </button>
+
+
+                    <div id="mensagemAcolhimento">
+
+                    </div>
+
+                </div>
+
+
+                <div class="frases">
+
+
+                    <div class="frase-card">
+
+                        <i class="fa-solid fa-heart"></i>
+
+                        <p>
+                            Seus sentimentos são importantes.
+                        </p>
+
+                    </div>
+
+
+                    <div class="frase-card">
+
+                        <i class="fa-solid fa-shield-heart"></i>
+
+                        <p>
+                            Pedir ajuda também é um ato de coragem.
+                        </p>
+
+                    </div>
+
+
+                    <div class="frase-card">
+
+                        <i class="fa-solid fa-people-arrows"></i>
+
+                        <p>
+                            Você não precisa enfrentar tudo sozinho.
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
         </section>
 
 
-        <!-- ================= QUANDO PROCURAR AJUDA ================= -->
+        <!-- =====================================================
+             AJUDA
+        ===================================================== -->
 
         <section class="ajuda">
 
             <div class="titulo">
 
-                <span>Quando precisar</span>
+                <span>
+                    REDE DE APOIO
+                </span>
 
                 <h2>
-                    Procure ajuda de alguém de confiança
+                    Quando precisar, procure ajuda
                 </h2>
 
             </div>
 
 
             <div class="ajuda-lista">
+
 
                 <div class="ajuda-item">
 
@@ -355,8 +1681,9 @@
                         </h3>
 
                         <p>
-                            Converse com um professor em quem você confia
-                            quando estiver enfrentando alguma dificuldade.
+                            Converse com um professor em quem
+                            você confia quando estiver enfrentando
+                            alguma dificuldade.
                         </p>
 
                     </div>
@@ -375,8 +1702,8 @@
                         </h3>
 
                         <p>
-                            A equipe da escola pode orientar e ajudar
-                            diante de situações difíceis.
+                            A equipe da escola pode orientar e
+                            ajudar diante de situações difíceis.
                         </p>
 
                     </div>
@@ -395,8 +1722,8 @@
                         </h3>
 
                         <p>
-                            Compartilhe seus sentimentos com um familiar
-                            ou responsável de confiança.
+                            Compartilhe seus sentimentos com um
+                            familiar ou responsável de confiança.
                         </p>
 
                     </div>
@@ -415,8 +1742,8 @@
                         </h3>
 
                         <p>
-                            Pode ser outro adulto que faça parte da sua
-                            rede de apoio e que possa ajudar.
+                            Pode ser outro adulto da sua rede
+                            de apoio que possa ajudar.
                         </p>
 
                     </div>
@@ -428,14 +1755,47 @@
         </section>
 
 
-        <!-- ================= FRASE MOTIVACIONAL ================= -->
+        <!-- =====================================================
+             ACOLHIMENTO
+        ===================================================== -->
+
+        <section class="acolhimento">
+
+            <div class="acolhimento-conteudo">
+
+                <i class="fa-solid fa-shield-heart"></i>
+
+                <h2>
+                    Você não precisa enfrentar tudo sozinho.
+                </h2>
+
+                <p>
+                    Se alguma situação estiver sendo difícil,
+                    converse com um professor, pedagogo,
+                    direção, familiar ou outro adulto de confiança.
+                </p>
+
+                <a href="#escuta" class="botao">
+
+                    Quero conversar
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FRASE
+        ===================================================== -->
 
         <section class="frase">
 
             <i class="fa-solid fa-quote-left"></i>
 
             <h2>
-                "Você não precisa resolver tudo hoje."
+                Você não precisa resolver tudo hoje.
             </h2>
 
             <p>
@@ -445,44 +1805,262 @@
         </section>
 
 
-        <!-- ================= CARROSSEL ================= -->
+        <!-- =====================================================
+             QUIZ
+        ===================================================== -->
+
+        <section class="quiz" id="quiz">
+
+            <div class="titulo">
+
+                <span>
+                    TESTE SEUS CONHECIMENTOS
+                </span>
+
+                <h2>
+                    Quiz de Saúde Emocional
+                </h2>
+
+            </div>
+
+
+            <form id="quizForm">
+
+
+                <div class="pergunta">
+
+                    <h3>
+                        1. É importante conversar quando algo está incomodando?
+                    </h3>
+
+                    <label class="alternativa">
+
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="a">
+
+                        Sim
+
+                    </label>
+
+
+                    <label class="alternativa">
+
+                        <input
+                            type="radio"
+                            name="q1"
+                            value="b">
+
+                        Não
+
+                    </label>
+
+                </div>
+
+
+                <div class="pergunta">
+
+                    <h3>
+                        2. Qual atitude demonstra respeito?
+                    </h3>
+
+                    <label class="alternativa">
+
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="a">
+
+                        Ignorar os sentimentos da pessoa
+
+                    </label>
+
+
+                    <label class="alternativa">
+
+                        <input
+                            type="radio"
+                            name="q2"
+                            value="b">
+
+                        Ouvir e respeitar
+
+                    </label>
+
+                </div>
+
+
+                <div class="pergunta">
+
+                    <h3>
+                        3. Quem pode ajudar um estudante?
+                    </h3>
+
+                    <label class="alternativa">
+
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="a">
+
+                        Um adulto de confiança
+
+                    </label>
+
+
+                    <label class="alternativa">
+
+                        <input
+                            type="radio"
+                            name="q3"
+                            value="b">
+
+                        Ninguém
+
+                    </label>
+
+                </div>
+
+
+                <div class="pergunta">
+
+                    <h3>
+                        4. Pedir ajuda pode ser uma atitude de:
+                    </h3>
+
+                    <label class="alternativa">
+
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="a">
+
+                        Coragem
+
+                    </label>
+
+
+                    <label class="alternativa">
+
+                        <input
+                            type="radio"
+                            name="q4"
+                            value="b">
+
+                        Fraqueza
+
+                    </label>
+
+                </div>
+
+
+                <div class="pergunta">
+
+                    <h3>
+                        5. O que fazer diante de uma situação de bullying?
+                    </h3>
+
+                    <label class="alternativa">
+
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="a">
+
+                        Contar para um adulto de confiança
+
+                    </label>
+
+
+                    <label class="alternativa">
+
+                        <input
+                            type="radio"
+                            name="q5"
+                            value="b">
+
+                        Guardar tudo sozinho
+
+                    </label>
+
+                </div>
+
+
+                <button type="submit">
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                    Ver meu resultado
+
+                </button>
+
+            </form>
+
+
+            <div id="resultado"></div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CARROSSEL
+        ===================================================== -->
 
         <section class="carrossel">
 
             <div class="titulo">
 
-                <span>Galeria</span>
+                <span>
+                    GOTHAM
+                </span>
 
                 <h2>
-                    Momentos de apoio e convivência
+                    Galeria
                 </h2>
 
             </div>
 
+
             <div class="slider">
 
-                <button class="seta anterior" id="anterior">
+                <button
+                    class="seta anterior"
+                    id="anterior">
+
                     <i class="fa-solid fa-chevron-left"></i>
+
                 </button>
+
 
                 <div class="slides">
 
-                    <img src="imagens/estudantes.jpg"
-                        alt="Estudantes juntos"
-                        class="slide ativo">
+                    <img
+                        src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1200&q=80"
+                        class="slide ativo"
+                        alt="Cidade durante a noite">
 
-                    <img src="imagens/apoio.jpg"
-                        alt="Pessoas oferecendo apoio"
-                        class="slide">
 
-                    <img src="imagens/saude-emocional.jpg"
-                        alt="Representação de saúde emocional"
-                        class="slide">
+                    <img
+                        src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80"
+                        class="slide"
+                        alt="Grupo de pessoas conversando">
+
+
+                    <img
+                        src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80"
+                        class="slide"
+                        alt="Pessoas trabalhando juntas">
 
                 </div>
 
-                <button class="seta proximo" id="proximo">
+
+                <button
+                    class="seta proximo"
+                    id="proximo">
+
                     <i class="fa-solid fa-chevron-right"></i>
+
                 </button>
 
             </div>
@@ -490,10 +2068,69 @@
         </section>
 
 
+        <!-- =====================================================
+             REFERÊNCIAS
+        ===================================================== -->
+
+        <section class="referencias" id="referencias">
+
+            <div class="titulo">
+
+                <span>
+                    FONTES
+                </span>
+
+                <h2>
+                    Referências
+                </h2>
+
+            </div>
+
+
+            <div class="referencias-lista">
+
+                <a
+                    href="https://www.gov.br/saude/pt-br"
+                    target="_blank">
+
+                    <i class="fa-solid fa-building-columns"></i>
+
+                    Ministério da Saúde
+
+                </a>
+
+
+                <a
+                    href="https://www.who.int/"
+                    target="_blank">
+
+                    <i class="fa-solid fa-globe"></i>
+
+                    Organização Mundial da Saúde (OMS)
+
+                </a>
+
+
+                <a
+                    href="https://www.unicef.org/"
+                    target="_blank">
+
+                    <i class="fa-solid fa-child"></i>
+
+                    UNICEF
+
+                </a>
+
+            </div>
+
+        </section>
+
     </main>
 
 
-    <!-- ================= BOTÃO VOLTAR AO TOPO ================= -->
+    <!-- =====================================================
+         VOLTAR AO TOPO
+    ===================================================== -->
 
     <button id="voltarTopo" title="Voltar ao topo">
 
@@ -502,17 +2139,19 @@
     </button>
 
 
-    <!-- ================= RODAPÉ ================= -->
+    <!-- =====================================================
+         RODAPÉ
+    ===================================================== -->
 
     <footer>
 
         <div class="footer-conteudo">
 
+
             <div class="footer-logo">
 
                 <h3>
-                    <i class="fa-solid fa-heart"></i>
-                    Portal de Saúde Emocional
+                    🦇 BATMAN | SAÚDE EMOCIONAL
                 </h3>
 
                 <p>
@@ -529,20 +2168,20 @@
                     Navegação
                 </h4>
 
-                <a href="index.html">
+                <a href="#inicio">
                     Início
                 </a>
 
-                <a href="escuta.html">
+                <a href="#sobre">
+                    Saúde emocional
+                </a>
+
+                <a href="#escuta">
                     Portal de Escuta
                 </a>
 
-                <a href="quiz.html">
+                <a href="#quiz">
                     Quiz
-                </a>
-
-                <a href="referencias.html">
-                    Referências
                 </a>
 
             </div>
@@ -551,19 +2190,15 @@
             <div class="footer-links">
 
                 <h4>
-                    Ajuda
+                    Projeto
                 </h4>
 
-                <a href="#sobre">
-                    Saúde emocional
+                <a href="#referencias">
+                    Referências
                 </a>
 
-                <a href="#inicio">
-                    Início
-                </a>
-
-                <a href="escuta.html">
-                    Preciso conversar
+                <a href="#ajuda">
+                    Rede de apoio
                 </a>
 
             </div>
@@ -574,7 +2209,7 @@
         <div class="copyright">
 
             <p>
-                &copy; 2026 Portal de Saúde Emocional do Estudante.
+                © 2026 — Portal de Saúde Emocional do Estudante
             </p>
 
             <p>
@@ -586,9 +2221,320 @@
     </footer>
 
 
-    <!-- JAVASCRIPT EXTERNO -->
-    <script src="script.js"></script>
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        /* =========================================
+           MENU MOBILE
+        ========================================= */
+
+        const menuMobile =
+            document.getElementById("menuMobile");
+
+        const menu =
+            document.getElementById("menu");
+
+
+        menuMobile.addEventListener("click", function () {
+
+            menu.classList.toggle("aberto");
+
+        });
+
+
+        /* =========================================
+           MODO ESCURO
+        ========================================= */
+
+        document
+            .getElementById("modoEscuro")
+            .addEventListener("click", function () {
+
+                document.body.classList.toggle("modo-escuro");
+
+            });
+
+
+        /* =========================================
+           AUMENTAR FONTE
+        ========================================= */
+
+        document
+            .getElementById("aumentarFonte")
+            .addEventListener("click", function () {
+
+                document.body.classList.toggle("fonte-grande");
+
+            });
+
+
+        /* =========================================
+           ALTO CONTRASTE
+        ========================================= */
+
+        document
+            .getElementById("altoContraste")
+            .addEventListener("click", function () {
+
+                document.body.classList.toggle("alto-contraste");
+
+            });
+
+
+        /* =========================================
+           VOLTAR AO TOPO
+        ========================================= */
+
+        const voltarTopo =
+            document.getElementById("voltarTopo");
+
+
+        window.addEventListener("scroll", function () {
+
+            if (window.scrollY > 300) {
+
+                voltarTopo.style.display = "block";
+
+            } else {
+
+                voltarTopo.style.display = "none";
+
+            }
+
+        });
+
+
+        voltarTopo.addEventListener("click", function () {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        });
+
+
+        /* =========================================
+           PORTAL DE ESCUTA
+        ========================================= */
+
+        const enviarDesabafo =
+            document.getElementById("enviarDesabafo");
+
+        const desabafo =
+            document.getElementById("desabafo");
+
+        const mensagem =
+            document.getElementById("mensagemAcolhimento");
+
+
+        enviarDesabafo.addEventListener("click", function () {
+
+            if (desabafo.value.trim() === "") {
+
+                mensagem.style.display = "block";
+
+                mensagem.innerHTML =
+                    "💛 Você pode escrever algo antes de enviar. " +
+                    "Este espaço é apenas uma simulação.";
+
+                return;
+
+            }
+
+
+            mensagem.style.display = "block";
+
+            mensagem.innerHTML =
+                "<strong>🦇 Mensagem do Bat-Sinal:</strong><br><br>" +
+
+                "Obrigado por compartilhar o que está sentindo. " +
+
+                "Se algo estiver sendo difícil, lembre-se de que " +
+
+                "você não precisa enfrentar tudo sozinho. " +
+
+                "Converse com um professor, pedagogo, familiar " +
+
+                "ou outro adulto de confiança.";
+
+            desabafo.value = "";
+
+        });
+
+
+        /* =========================================
+           QUIZ
+        ========================================= */
+
+        const quiz =
+            document.getElementById("quizForm");
+
+        const resultado =
+            document.getElementById("resultado");
+
+
+        quiz.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+
+            let pontos = 0;
+
+
+            const respostas = {
+
+                q1: "a",
+                q2: "b",
+                q3: "a",
+                q4: "a",
+                q5: "a"
+
+            };
+
+
+            for (let pergunta in respostas) {
+
+                const resposta =
+                    document.querySelector(
+                        `input[name="${pergunta}"]:checked`
+                    );
+
+
+                if (resposta &&
+                    resposta.value === respostas[pergunta]) {
+
+                    pontos++;
+
+                }
+
+            }
+
+
+            resultado.style.display = "block";
+
+
+            if (pontos === 5) {
+
+                resultado.innerHTML =
+                    "🦇 PERFEITO! Você acertou 5 de 5! " +
+                    "Gotham está orgulhosa de você.";
+
+            } else if (pontos >= 3) {
+
+                resultado.innerHTML =
+                    "💛 Muito bem! Você acertou " +
+                    pontos +
+                    " de 5 perguntas.";
+
+            } else {
+
+                resultado.innerHTML =
+                    "🧠 Você acertou " +
+                    pontos +
+                    " de 5. " +
+                    "Que tal revisar os conteúdos e tentar novamente?";
+
+            }
+
+
+            resultado.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        });
+
+
+        /* =========================================
+           CARROSSEL
+        ========================================= */
+
+        const slides =
+            document.querySelectorAll(".slide");
+
+        const anterior =
+            document.getElementById("anterior");
+
+        const proximo =
+            document.getElementById("proximo");
+
+
+        let slideAtual = 0;
+
+
+        function mostrarSlide(numero) {
+
+            slides.forEach(function (slide) {
+
+                slide.classList.remove("ativo");
+
+            });
+
+
+            slides[numero].classList.add("ativo");
+
+        }
+
+
+        proximo.addEventListener("click", function () {
+
+            slideAtual++;
+
+            if (slideAtual >= slides.length) {
+
+                slideAtual = 0;
+
+            }
+
+            mostrarSlide(slideAtual);
+
+        });
+
+
+        anterior.addEventListener("click", function () {
+
+            slideAtual--;
+
+            if (slideAtual < 0) {
+
+                slideAtual = slides.length - 1;
+
+            }
+
+            mostrarSlide(slideAtual);
+
+        });
+
+
+        /* =========================================
+           CARROSSEL AUTOMÁTICO
+        ========================================= */
+
+        setInterval(function () {
+
+            slideAtual++;
+
+            if (slideAtual >= slides.length) {
+
+                slideAtual = 0;
+
+            }
+
+            mostrarSlide(slideAtual);
+
+        }, 5000);
+
+
+    </script>
 
 </body>
 
 </html>
+```
